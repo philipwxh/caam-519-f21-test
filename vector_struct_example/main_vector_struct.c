@@ -20,18 +20,33 @@ int main(){
     vector_set(ptr_w,i,w_array[i]);
   }
   
-  my_vector x;
-  x = vector_addition(ptr_v, ptr_w);
-  my_vector* ptr_x = &x;
+  my_vector y = vector_addition(ptr_v, ptr_w);
+  my_vector* ptr_y = &y;
   
-  printf("Result of adding v+w: ");
-  for (int i=0; i < ptr_x->length ;++i){
-    double index_value = vector_get(ptr_x, i);
-    printf("%f", index_value);
+  printf("Result of adding v+w: [");
+  for (int i=0; i < ptr_y->length ;++i){
+    double index_value = vector_get(ptr_y, i);
+    printf("%f%s", index_value, ", ");
 }
+printf("]\n");
+
+  my_vector z = vector_scalar_multiplication(ptr_v, 2);
+  my_vector* ptr_z = &z;
+  
+  printf("Result of multiplying v by 2: [");
+  for (int i=0; i < ptr_z->length ;++i){
+    double index_value = vector_get(ptr_z, i);
+  printf("%f%s", index_value, ", ");
+}
+printf("]\n");
+
+  double d = vector_dot_product(ptr_v, ptr_w);
+  printf("%s%f","Result of dot product v.w: ",d);
+  
   // free up space occupied by these vectors
   vector_destructor(ptr_v);
   vector_destructor(ptr_w);
-  vector_destructor(ptr_x);
+  vector_destructor(ptr_y);
+  vector_destructor(ptr_z);
 
 }

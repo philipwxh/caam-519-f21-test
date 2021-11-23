@@ -99,7 +99,7 @@ my_vector vector_scalar_multiplication(my_vector* v, double num){
 // vector dot multiplication
 double vector_dot_product(my_vector* v, my_vector* w){
   //define output
-  double output = 0;
+  double output = 0.0;
 
   // here the input is the scalar num and we have checked that v is a usable vector. Do same for w and check if lengths are the same
   if ((v->status == 0 && w->status) == 0 && v->length == w->length){
