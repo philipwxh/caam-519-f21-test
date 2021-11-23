@@ -75,28 +75,68 @@ double vector_get(my_vector* vec, const int index){
 
 // vector scalar multiplication
 my_vector vector_scalar_multiplication(my_vector* v, double num){
-  // initialized a new vector called w
-  my_vector w = vector_constructor(v->length);
+  // initialized a new vector called x
+  my_vector x = vector_constructor(v->length);
 
   // here the input is the scalar num and we have checked that v is a usable vector
   if (v->status == 0){
 
-    //get the address of w for the pointer
-    my_vector* ptr_w = &w;
+    //get the address of x for the pointer
+    my_vector* ptr_x = &x;
     
-    // for loop for scalar multiplication
-    // continue ... [use vector_set() here]
+    for (int i=0; i < v->length ;++i){
+	const double index_value = num*vector_get(v, i); 
+	vector_set(ptr_x, i, index_value); // check if I need to do this on w instead of the pointer
     }
-
   }
-  else{
+  else {
     printf("vector_scalar_multiplication: this is an invalid vector we have inputted");
   }
 
-  return w;
+  return x;
 }
 
-// continue ...
-// implement vector_addition and vector_dot_product
+// vector dot multiplication
+double vector_dot_product(my_vector* v, my_vector* w){
+  //define output
+  double output = 0;
+
+  // here the input is the scalar num and we have checked that v is a usable vector. Do same for w and check if lengths are the same
+  if ((v->status == 0 && w->status) == 0 && v->length == w->length){
+
+    //get the address of x for the pointer
+    
+    for (int i=0; i < v->length ;++i){
+	output+= vector_get(w, i)*vector_get(v, i); 
+    }
+  }
+  else {
+    printf("vector_dot_product: this is an invalid vector we have inputted");
+  }
+
+  return output;
+}
+
+// vector addition
+my_vector vector_addition(my_vector* v, my_vector* w){
+  // initialized a new vector x
+  my_vector x = vector_constructor(v->length);
+  // here the input is the scalar num and we have checked that v is a usable vector. Do same for w and check if lengths are the same
+  if ((v->status == 0 && u->status) == 0 && v->length == u ->length){
+
+    //get the address of x for the pointer
+      my_vector* ptr_x = &x;
+    
+    for (int i=0; i < v->length ;++i){
+	const double index_value = vector_get(w, i)+vector_get(v, i); 
+	vector_set(ptr_x, i, index_value);
+    }
+  }
+  else {
+    printf("vector_dot_multiplication: this is an invalid vector we have inputted");
+  }
+
+  return x;
+}
 
 

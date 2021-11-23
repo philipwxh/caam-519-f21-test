@@ -1,0 +1,5 @@
+CCC = g++
+MAKRO = -DODESSA
+CFLAGS = -g $(MAKRO)
+
+
