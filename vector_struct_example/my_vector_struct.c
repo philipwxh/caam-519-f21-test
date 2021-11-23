@@ -122,7 +122,7 @@ my_vector vector_addition(my_vector* v, my_vector* w){
   // initialized a new vector x
   my_vector x = vector_constructor(v->length);
   // here the input is the scalar num and we have checked that v is a usable vector. Do same for w and check if lengths are the same
-  if ((v->status == 0 && u->status) == 0 && v->length == u ->length){
+  if ((v->status == 0 && w->status) == 0 && v->length == w->length){
 
     //get the address of x for the pointer
       my_vector* ptr_x = &x;
